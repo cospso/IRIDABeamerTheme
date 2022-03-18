@@ -1,0 +1,54 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{tikz, graphicx, graphics}
+\usepackage{amssymb, amsfonts, amsthm, ragged2e}
+
+\usetheme{irida}
+
+\title[title]{Title...\\ ...}
+\subtitle{Subtitle}
+\author[Author]{Author(s)}
+\institute[IRIDA/UCY]{IRIDA Research Centre for Communication Technologies\\[1mm] Department of Electrical and Computer Engineering,\\[1mm] University of Cyprus}
+\date{Date\vfill}
+
+\setlength{\parskip}{.5em}
+
+
+\AtBeginSection[]
+{
+\begin{frame}
+  \frametitle{Outline}
+  \tableofcontents[currentsection]
+\end{frame}
+}
+
+\begin{document}
+
+\begin{frame}[noframenumbering]
+\titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+\tableofcontents
+\end{frame}
+
+\addtocounter{framenumber}{-1}
+\setbeamertemplate{navigation symbols}{
+  \scriptsize\insertframenumber/\inserttotalframenumber
+}
+
+\section{Section I}
+
+\section{Section II}
+
+\section{....}
+
+\begin{frame}{A frame with boxes}
+\begin{definition} ... \end{definition}
+\begin{theorem} ... \end{theorem}
+\begin{proof} ... \end{proof}
+\end{frame}
+
+\end{document}

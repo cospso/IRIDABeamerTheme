@@ -1,0 +1,93 @@
+\mode<presentation>
+
+%\useinnertheme{irida}
+% suppress all navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+% use circle symbols for all bulleted lists
+\setbeamertemplate{items}[circle]
+\setbeamertemplate{sections/subsections in toc}[square]
+
+\setbeamertemplate{blocks}[default]
+\setbeamerfont{block title}{series=\bfseries}
+
+% title page
+\defbeamertemplate*{title page}{irida}[1][] {
+  \usebeamerfont{title}\usebeamercolor[fg]{title}\textbf{\inserttitle}\par\smallskip
+  \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par\bigskip
+  \usebeamerfont{author}\usebeamercolor[fg]{author}\textbf{\insertauthor}\par\smallskip
+  \usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute\par\medskip
+  \usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate\par\bigskip
+  
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[yshift=-10pt,xshift=50pt] at (0,0){\includegraphics[width=3cm]{images/IRIDA_logo.jpg}};
+    \node[yshift=-12pt,xshift=160pt] at (0,0){\includegraphics[width=3.6cm]{images/ucy-logo}};
+  \end{tikzpicture}
+  
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[yshift=-150pt,xshift=-100pt] at (current page.north east){
+    \includegraphics[height=10cm,keepaspectratio, decodearray={0.95 1 0.95 1 0.95 1}]{images/irida.png} };
+  \end{tikzpicture}
+}
+
+\newcounter{theo}[section]\setcounter{theo}{0}
+\newenvironment{theo}[2][]{
+  \refstepcounter{theo}
+  \ifstrempty{#1}
+  {\mdfsetup{
+      frametitle={
+        \tikz[baseline=(current bounding box.east),outer sep=0pt]
+        \node[anchor=east,rectangle,fill=gray,text=white]
+        {\strut Theorem};}}
+  }
+  {\mdfsetup{
+      frametitle={
+        \tikz[baseline=(current bounding box.east),outer sep=0pt]
+        \node[anchor=east,rectangle,fill=blue!20]
+        {\strut Theorem~\thetheo:~#1};}}
+  }
+  \mdfsetup{innertopmargin=10pt,linecolor=gray,
+    linewidth=2pt,topline=true,%
+    frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+  }
+  \begin{mdframed}[]\relax
+    \label{#2}}{\end{mdframed}}
+  
+%\useoutertheme{irida}
+\addtobeamertemplate{frametitle}{}{
+  \begin{tikzpicture}[remember picture,overlay]
+  \node[anchor=north east,yshift=2pt,xshift=-24pt] at (current page.north east) {\includegraphics[height=0.75cm]{images/ucy_tree.jpg}};
+  \node[anchor=north east,yshift=7pt,xshift=1pt] at (current page.north east) {\includegraphics[height=1.15cm, decodearray={0.3 0.5 0.3 0.5 0.3 0.5}]{images/irida.png}};
+  \end{tikzpicture}\vspace{-5mm}
+}
+
+%\usecolortheme{irida}
+\definecolor{navy blue}{RGB}{0,14,47}
+\definecolor{white}{RGB}{255,255,255}
+\definecolor{gray}{RGB}{124,135,142}
+\definecolor{dark red}{RGB}{138,33,33}
+\definecolor{purple}{RGB}{86,54,128}
+\definecolor{gold}{RGB}{206,149,46}
+\definecolor{green}{RGB}{124,142,49}
+
+\setbeamercolor*{section in toc}{fg=navy blue}
+\setbeamercolor*{section in toc shaded}{fg=gray}
+\setbeamercolor*{subsection in toc}{fg=gray}
+\setbeamercolor*{subsection in toc shaded}{fg=gray}
+\setbeamercolor*{subsubsection in toc}{fg=purple}
+\setbeamercolor*{subsubsection in toc shaded}{fg=gray}
+\setbeamercolor{block title}{fg=white,bg=gray}
+\setbeamercolor{block body}{bg=gray!10}
+\setbeamercolor*{titlelike}{fg=navy blue}
+\setbeamercolor*{author}{fg=gray}
+\setbeamercolor*{institute}{fg=gray}
+\setbeamercolor*{date}{fg=gray}
+\setbeamercolor*{caption name}{fg=dark red}
+\setbeamercolor*{local structure}{fg=gold}
+\setbeamercolor*{subitem}{fg=gold}
+\setbeamercolor*{subsubitem}{fg=green}
+\setbeamercolor*{alerted text}{fg=gold}
+\setbeamercolor*{button}{bg=gold,fg=white}
+\setbeamercolor*{button border}{fg=gold}
+
+\mode<all>
